@@ -75,46 +75,100 @@ public class Step3 {    // c s
         // * 참조타입(문자열) 비교 "문자열".equals("비교할문자열");
 
 
-
-
-
-
-        /*
-            p.73 ~ 75 확인문제
-
-            1. 변수에대해 잘못 설명한것
-                4. 변수는 초기값이 저장되지않는 상태에서 읽을수 있다.
-            2. 변수 이름으로 사용할수 없는것 
-                2. class , 3. 6hour , 6. #name , 7. int
-            3. 기본타입8개
-                정수타입    1byte( byte ) 2byte( short , char ) 4byte( int ) 8 byte( long )
-                실수타입    4byte( float ) 8 byte( double )
-                논리타입    1byte( boolean )
-            4. 타입 변수이름 리터럴 해당하는걸 적기
-                타입 : int , double
-                변수 이름 : age , price
-                리터럴 : 10 , 3.14
-            5.   자동타입 변환 에러 선택
-                3. short shortValue = charValue; * unsigned 로 short 에 char 를 담을수 없음
-            6.  강제타입 변환시 컴파일 에러 선택
-                4. char var = (char)strValue;
-            7.  변수를 잘못 초기화 한것
-                3. char var3 = '';
-            8.  콘솔에 값을 입출력하는 방법에 대해 잘못 설명한것
-                3. System.out.printf("형식",변수)는 주어진 형식대로 변수값을 바꾼다.
-            9.  연산식의 타입 변환중에 컴파일 에러 발생하는것   -> byte ,short 무조건 int 연산시 int 변환
-                1. byte result = byteValue + byteValue;
-            10. 문자열을 기본타입으로 변환하는 코드중 틀린것
-                2. int var2 = Int.parseInt(str);
-            11. 다음 코드에서 컴파일 에러 발생하는 라인을 적기 
-                13줄 
-                16줄
-
-
-        */
-
     } // m e
 }// c e
+/*
+    타입
+        1.기본타입( int , double , float 등 소문자. )
+        2.참조타입( String , Scanner , System , Integer 등등 )
 
+*/
 
+/*
+        // p.73 ~ 75 확인문제.
+            // 1. (4)
+                1. 변수 : 하나의 값만 저장  VS 배열 : 여러개의 값 저장.
+                2. 선언시 사용한 타입의 허용 범위내 데이터 저장.
+                3. { } 안에서 선언된 변수는 { } 밖에서 호출이 불가능하다.
+                4. 없다. [ 필드는 초기값이 없으면 기본값이 할당 ]
 
+            // 2. (2,3,6,7)
+                int modelName;
+                int class;
+                int 6hour;
+                int $value;
+                int _age;
+                int #name;
+                int int;
+
+            // 3.
+                byte    short   int     long
+                        char
+                                float   double
+                boolean
+
+            // 4.
+                타입 : int , double
+                변수이름 : age , price
+                리터럴 : 10 , 3.14;
+
+            // 5. (3)
+                byte : -128 ~ 127
+                char : unsigned(부호x) 0~65535
+
+                1. int = byte   [자동]    4바이트 <- 1바이트
+                2. int = char   [자동]    4바이트 <- 1바이트
+                3. short = char [자동]    2바이트 <- 2바이트  [ unsigned ]
+                4. double = byte [자동]   8바이트 <- 1바이트
+
+            // 6. (4)
+                int 10           char 'A'
+                double 5.7       String "A" <-- 1바이트
+                1. double = (double)int   8바이트 <- 4바이트
+                2. byte = (byte)int       1바이트 <- 4바이트
+                3. int = (int)double      4바이트 <- 8바이트
+                4. char = (char)String    2바이트 <- ?????
+
+            // 7. (3)
+                int var1 = 10;
+                long var2 = 1000000000000L;
+                char var3 = '';  // char '' 사용불가능 , 공백 ' ' 띄어쓰기
+                float var4 = 10;
+                String var5 = "abc\ndef";
+                String var6 = """
+                        abc
+                        def
+                        """;
+
+            // 8. (3)
+                바꾼다 -> 출력한다.
+
+            // 9. (1) : byte , short 무조건 int 반환
+                byte 10    float 2.5f   double 2.5
+                1. byte = byte + byte           byte + byte = > int     [x]
+                2. int = 5 + byte               int + byte = > int
+                3. float = 5 + float            int + float => float
+                4. double = 5 + double          int + double => double
+
+            // 10. (2)
+                Int.parseInt()      [X]
+                Integer.parseInt()  [O]
+
+            // 11. 지역변수의 허용범위 : { } 안에서 선언된 변수는 밖으로 호출/사용 불가능.
+                    int v1= 1;
+                    System.out.println("v1 = " + v1);
+                    if( true ){
+                        int v2 = 2;
+                        if( true ){
+                            int v3 = 2;
+                            System.out.println("v1 = " + v1);
+                            System.out.println("v2 = " + v2);
+                            System.out.println("v3 = " + v3);
+                        }
+                        System.out.println("v1 = " + v1);
+                        System.out.println("v2 = " + v2);
+                        // System.out.println("v3 = " + v3); // 여기
+                    }
+                    System.out.println("v1 = " + v1);
+                    //System.out.println("v2 = " + v2); // 여기
+*/
