@@ -1,5 +1,7 @@
 package day03;
 
+import jdk.jfr.Unsigned;
+
 import java.util.Scanner;
 
 public class Step5 {
@@ -41,6 +43,7 @@ public class Step5 {
         if(num1 > num3){ temp = num1; num1 = num3 ; num3 = temp; }
         if(num2 > num3){ temp = num2; num2 = num3 ; num3 = temp; }
         System.out.printf( "오름차순 : %d , %d , %d \n", num1, num2 , num3 );
+
 
         /*
             p.38 두 변수 간의 값을 바꾸기.
