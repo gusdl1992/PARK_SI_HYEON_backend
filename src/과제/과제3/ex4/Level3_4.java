@@ -20,13 +20,18 @@ public class Level3_4 {
 			if (num > 0){
 				count += num;
 			}else if (num < 0){
-				count -= num;
+				count -= (num * -1); // 음의값을 양수로 변환 해서 빼기.
 			}
 
 			for(int i = 0; i < count ; i++){
 				System.out.print("■ ");
 			}
 			System.out.println();
+
+			if(count < 0 ){
+				System.out.println("0보다 작아 종료합니다.");
+				break;
+			}
 		}
 
 
