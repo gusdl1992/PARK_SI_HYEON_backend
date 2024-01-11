@@ -17,6 +17,34 @@ public class Level4_4 {
 		while ( true ) {
 			/* 문제풀이 위치 */
 
+			// 출력
+			for (int i = 0 ; i < X_AXIS.length; i++){
+				if(i == x){
+					X_AXIS[ x ] = "★";
+					System.out.print("\t" + X_AXIS[i]);
+				}else {
+					System.out.print("\t" + X_AXIS[i]);
+				}
+
+			}
+			// 줄바꿈
+			System.out.println();
+			// 입력받기
+			System.out.print("1.전진 2.후진 선택> ");
+			int ch = scanner.nextInt();
+			// 전진일 경우 x 값 +1 해주고 배열 초기화 => 위쪽 출력에서 다시 "★" 넣어줘서 괜찮
+			if(ch == 1){
+				if(!(x == 4)){
+					x += 1;
+					X_AXIS = new String[5];
+				}
+			} else if (ch == 2) {
+				// 후진일 경우 x 값 -1 해주고 배열 초기화 => 위쪽 출력에서 다시 "★" 넣어줘서 괜찮
+				if(!(x == 0)){
+					x -= 1;
+					X_AXIS = new String[5];
+				}
+			}
 
 
 			/* ----------- */
