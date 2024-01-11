@@ -8,7 +8,7 @@ public class Step4 { // cs
         Scanner scanner = new Scanner(System.in);
         // 1. Phone객체 100개를 저장할수 있는 Phone배열 선언
         // 등록전 : null  X 100
-        Phone[] phoneBook = new Phone[100];
+        Phone[] phoneBook = new Phone[3];
 
         while (true ) { // w s
 
@@ -47,7 +47,11 @@ public class Step4 { // cs
                 phoneBook[dNo-1] = null;
                 for( int i = dNo-1 ; i<phoneBook.length ; i++ ){
                     // 만약에 i가 마지막 인덱스이면 +1를 할수 없다.
-                    if( i+1 == phoneBook.length ) break;
+                    if( i+1 == phoneBook.length ){
+                        phoneBook[i] = null; // 마지막인덱스에 null 부여
+                        break;
+                    }
+
                     phoneBook[i] = phoneBook[i+1];// 한칸씩 당기기.
                 }
             }
