@@ -54,11 +54,11 @@ public class Step4_전화번호부_객체 {
                 String name = scanner.nextLine();
                 System.out.print("전화번호를 입력해주세요. >");
                 String pon = scanner.nextLine();
-                phoneBook[Phone.count] = new Phone( name , pon);
+                phoneBook[Phone.count-1] = new Phone( name , pon);
 
             } else if (ch == 2) {
                 System.out.println("============= 삭제할 순번 입력 =============");
-                int num = scanner.nextInt();    // 삭제 순번 입력
+                int num = scanner.nextInt()-1;    // 삭제 순번 입력
                 scanner.nextLine(); // nextInt() 엔터값 없애기
 
                 for(int i = num ; i < phoneBook.length-1 ; i++){
@@ -67,7 +67,6 @@ public class Step4_전화번호부_객체 {
                         phoneBook[i].countNumber -= 1;
                     }
                 }
-
 
             } else if (ch == 3) {
                 System.out.println("============= 전화번호부 =============");
