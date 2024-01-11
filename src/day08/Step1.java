@@ -16,7 +16,13 @@ public class Step1 {
 
         while ((true)){
 
-            System.out.println(Arrays.toString(붕어빵트레이));
+            System.out.println(Arrays.toString(붕어빵트레이));    // 배열내 객체들 주소 확인
+
+            for(int i = 0 ; i < 붕어빵트레이.length; i++){
+                if (붕어빵트레이[i] != null){
+                    System.out.print(i + "인덱스" + 붕어빵트레이[i].속재료 + "\t\t");
+                }
+            }
             
             System.out.print("1.굽기 2.판매");
             int ch = scanner.nextInt();
@@ -38,13 +44,10 @@ public class Step1 {
                     }
                 }
 
-
                 // { 500 번지 = 101 번지}
             }   // if 가 끝나면 ' 붕어빵 ' 의 지역변수는 사라짐 -> 곧 객체도 사라짐.
 
-
         } //  w e
-
 
     } // m e
 } // c e
