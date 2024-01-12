@@ -6,7 +6,7 @@ public class Step3 {
 
     public static void main(String[] args) {
 
-
+        
 
         // 0. 기본 생성자로 객체 생성
         Korean k3 = new Korean();
@@ -25,4 +25,6 @@ public class Step3 {
 
         
     }// m e
+
 } // c e
+
