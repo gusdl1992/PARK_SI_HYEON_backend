@@ -1,5 +1,7 @@
 package day10;
 
+import java.util.Random;
+
 public class 캐릭터 {
     
     // 클래스 구성멤버
@@ -19,10 +21,14 @@ public class 캐릭터 {
 
     // 3. 메소드
     public  void 공격(){
-        
+        Random random = new Random();
+        // 랜덤으로 체력감소 0 ~ 10 사이
+        this.체력 -= random.nextInt(10);
         return; // 메소드 종료 / 상황에 따라 사용 / 생략가능
     }
 
+    // 객체의 필드 확인용 메소드
+        // 오른쪽 클릭 -> 생성 -> toString()
     @Override
     public String toString() {
         return "캐릭터{" +
