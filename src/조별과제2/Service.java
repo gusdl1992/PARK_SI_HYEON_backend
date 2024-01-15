@@ -11,6 +11,18 @@ public class Service {
 
     // 메소드
 
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "memberNum=" + memberNum +
+                ", rating='" + rating + '\'' +
+                ", volume=" + volume +
+                ", period='" + period + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     void basic(int memberNum){
         this.memberNum = memberNum;
         this.rating = "Basic";
