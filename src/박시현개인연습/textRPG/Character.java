@@ -6,13 +6,11 @@ public class Character {
     private int hp = 100;
     private int mp = 50;
     private int str = 10;
-    private int def = 10;
-    private int wsd = 10;
-    private int spd = 10;
+    private int def = 5;
+    private int wsd = 5;
+    private int spd = 5;
 
-    Character(){
-        this.name = "홍길동";
-    }
+    Character(){}
     Character(String name){
         this.name = name;
     }
@@ -49,6 +47,10 @@ public class Character {
         this.def = def;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getWsd() {
         return wsd;
     }
@@ -63,6 +65,18 @@ public class Character {
 
     public void setSpd(int spd) {
         this.spd = spd;
+    }
+
+    void attack(Monster monster){
+        System.out.println(name + "의 공격!" + monster.getName() +"에게" + (str-monster.getDef())+ "데미지를 주었다!");
+        int mhp = str - monster.getDef();
+        monster.battleHp(mhp);
+        System.out.println(monster.getName() + "의 남은 체력 : " + monster.getHp());
+
+    }
+
+    public void battleHp(int dmg){
+        this.hp -= dmg;
     }
 
     @Override
