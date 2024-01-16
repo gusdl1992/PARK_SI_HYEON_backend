@@ -30,7 +30,6 @@ public class Main {
             } // ch if e
             if (ch == 2){
                 회원가입();
-
             } // ch if e
             if (ch == 3){
                 break;
