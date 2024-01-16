@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MemberSys {
+	static Member[] memberArray = new Member[10];
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -15,9 +16,43 @@ public class MemberSys {
 			int ch = sc.nextInt();
 
 			if( ch == 1 ) {
+				System.out.print("아이디를 입력해주세요. > ");
+				String 아이디 = sc.next();
+				System.out.print("비밀번호를 입력해주세요. > ");
+				String 비밀번호 = sc.next();
+				System.out.print("이름을 입력해주세요. > ");
+				String 이름 = sc.next();
+				System.out.print("전화번호를 입력해주세요. > ");
+				String 전화번호 = sc.next();
+				System.out.print("나이를 입력해주세요. > ");
+				int 나이 = sc.nextInt();
+				Member member = new Member(아이디 , 비밀번호 , 이름 , 전화번호 , 나이);
+				for (int i = 0 ; i < memberArray.length; i++){
+					if (memberArray[i] == null){
+						memberArray[i] = member;
+						break;
+					} // if e
+				} // f e
 
 			}
 			else if( ch == 2 ) {
+
+				System.out.print("아이디를 입력해주세요. > ");
+				String 아이디 = sc.next();
+				System.out.print("비밀번호를 입력해주세요. > ");
+				String 비밀번호 = sc.next();
+				for (int i = 0 ; i < memberArray.length ; i++){
+					if(memberArray[i] != null){
+						if(memberArray[i].아이디.equals(아이디) && memberArray[i].비밀번호.equals(비밀번호)){
+							System.out.println("로그인 성공");
+							break;
+						}
+					}
+					if(i == memberArray.length - 1){
+						System.out.println("로그인 실패");
+						break;
+					}
+				} // for e
 
 			}
 
