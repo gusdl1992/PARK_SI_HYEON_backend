@@ -111,7 +111,7 @@ public class MemberDao {
         Random random = new Random();
         String str = "";
         for(int i = 0 ; i < 6 ; i++){
-            str += (char)((int)(random.nextInt(97 ,122)));
+            str += (char)((int)(random.nextInt(26))+97);
             System.out.println("str = " + str);
         }
         return str;
