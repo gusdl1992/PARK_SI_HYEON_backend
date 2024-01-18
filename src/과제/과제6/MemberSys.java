@@ -1,7 +1,8 @@
 package 과제.과제6;
 import java.util.Scanner;
 
-public class MemberSys { // class s 
+public class MemberSys { // class s
+	static 	Member[] members = new Member[100];
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -13,18 +14,86 @@ public class MemberSys { // class s
 			int ch = sc.nextInt();
 
 			if( ch == 1 ) {
+				System.out.print("아이디 : > ");
+				String 아이디 = sc.next();
+				System.out.print("비밀번호 : > ");
+				String 비밀번호 = sc.next();
+				System.out.print("이름 : > ");
+				String 이름 = sc.next();
+				System.out.print("전화번호 : > ");
+				String 전화번호 = sc.next();
+				System.out.print("나이 > ");
+				int 나이 = sc.nextInt();
+				sc.nextLine(); // nextInt() 엔터값 초기화
 
+				Member member = new Member(아이디 , 비밀번호 , 이름 , 전화번호 ,나이);
+				for (int i = 0 ; i < members.length ; i++){
+					// members 배열크기만큼 for 반복
+					if (members[i] == null){
+						members[i] = member;
+						break;
+					} // 배열 null 비교 if end
+				} // for end
 			}
 			else if( ch == 2 ) {
+				System.out.print("아이디 : > ");
+				String 아이디 = sc.next();
+				System.out.print("비밀번호 : > ");
+				String 비밀번호 = sc.next();
 
+				for (int i = 0 ; i < members.length ; i++){
+					// members 배열크기만큼 for 반복
+					if (members[i] != null){
+						if (members[i].get아이디().equals(아이디) && members[i].get비밀번호().equals(비밀번호) ){
+							System.out.println("로그인성공!");
+							break;
+						}
+					} // 배열 null 비교 if end
+					if(i == members.length-1){
+						System.out.println("로그인 실패");
+						break;
+					}
+				} // for end
+				
 			}
 			else if( ch == 3 ) {
+				System.out.print("이름 : > ");
+				String 이름 = sc.next();
+				System.out.print("전화번호 : > ");
+				String 전화번호 = sc.next();
 
+				for (int i = 0 ; i < members.length; i++){
+					if(members[i] != null){
+						if (members[i].get이름().equals(이름) && members[i].get전화번호().equals(전화번호)){
+							System.out.println(members[i].get아이디());
+							break;
+						} // 이름 전화번호 비교 end
+					} // 배열에 값이 있으면 실행 end
+					if(i == members.length-1){
+						System.out.println("회원가입한 유저가 아닙니다.");
+						break;
+					}
+				} // for end
 			}
 			else if( ch == 4 ) {
+				System.out.print("아이디 : > ");
+				String 아이디 = sc.next();
+				System.out.print("전화번호 : > ");
+				String 전화번호 = sc.next();
 
+				for (int i = 0 ; i < members.length; i++){
+					if(members[i] != null){
+						if (members[i].get아이디().equals(아이디) && members[i].get전화번호().equals(전화번호)){
+							System.out.println(members[i].get비밀번호());
+							break;
+						} // 아이디 전화번호 비교 end
+					} // 배열에 값이 있으면 실행 end
+					if(i == members.length-1){
+						System.out.println("회원가입한 유저가 아닙니다.");
+						break;
+					}
+				} // for end
 			}
-
 		} // w e
 	} // m e 
 } // class e 
