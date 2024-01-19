@@ -43,7 +43,7 @@ public class Controller {   // CLASS START
             shdto.set마일리지((int)(mileage * 0.05));
 
             // 신한은행 객체를 전달 해서 결과를 받는다.
-            result = BankDao.getInstance().입금(shdto);
+            result = BankDao.getInstance().입금(shdto , code);
             System.out.println("result = " + result);
         }
         if(code == 2){  // 국민은행이면
@@ -56,7 +56,7 @@ public class Controller {   // CLASS START
             kbdto.set쿠폰(coupon);
 
             // 국민은행 객체를 전달 해서 결과를 받는다.
-            result = BankDao.getInstance().입금(kbdto);
+            result = BankDao.getInstance().입금(kbdto ,code);
             System.out.println("result = " + result);
         }
         if(code == 3){  // 농협은행이면
@@ -69,7 +69,7 @@ public class Controller {   // CLASS START
             nhdto.set포인트((int) (point * 0.1));
 
             // 국민은행 객체를 전달 해서 결과를 받는다.
-            result = BankDao.getInstance().입금(nhdto);
+            result = BankDao.getInstance().입금(nhdto , code);
             System.out.println("result = " + result);
         }
         return result;
