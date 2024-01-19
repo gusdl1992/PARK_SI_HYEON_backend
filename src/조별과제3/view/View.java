@@ -5,6 +5,7 @@ import 조별과제3.model.BankDto;
 import 조별과제3.model.KbDto;
 import 조별과제3.model.ShDto;
 import 조별과제3.model.NhDto;
+import 조별과제3.controller.Controller;
 public class View {
 
     // 싱글톤

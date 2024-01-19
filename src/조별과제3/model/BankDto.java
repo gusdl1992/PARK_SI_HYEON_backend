@@ -4,6 +4,7 @@ public class BankDto {
     private String 계좌번호;
     private String 예금주;
     private int 금액;
+    private int 은행코드;
 
     // 기본 생성자
     public BankDto(){};
