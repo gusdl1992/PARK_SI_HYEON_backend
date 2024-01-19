@@ -1,10 +1,10 @@
 package 조별과제3.view;
 
 import java.util.Scanner;
-import 조별과제3.Dto.BankDto;
-import 조별과제3.Dto.KbDto;
-import 조별과제3.Dto.ShDto;
-import 조별과제3.Dto.NhDto;
+import 조별과제3.model.BankDto;
+import 조별과제3.model.KbDto;
+import 조별과제3.model.ShDto;
+import 조별과제3.model.NhDto;
 public class View {
 
     // 싱글톤
