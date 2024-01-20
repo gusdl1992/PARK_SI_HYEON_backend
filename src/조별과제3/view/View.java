@@ -33,6 +33,8 @@ public class View {
             }
             else if ( ch == 4 ){
                 break;
+            }else if(ch == 5){
+                조회();
             }else {
                 System.out.println("올바른 선택이 아닙니다.");
             }
@@ -168,6 +170,23 @@ public class View {
             System.out.println("출금에 실패 하였습니다.");
         }
 
+    }
+
+    public void 조회(){
+        Scanner scanner = new Scanner(System.in);
+        // 1 입력
+        System.out.print("계좌번호 : ");
+        String 계좌번호 = scanner.next();
+
+        // 객체
+        BankDto bankDto = new BankDto();
+        bankDto.set계좌번호(계좌번호);
+        
+        // 전달
+        String str = Controller.getInstance().조회(bankDto);
+
+        // 처리
+        System.out.println(str);
     }
 
 } // c e

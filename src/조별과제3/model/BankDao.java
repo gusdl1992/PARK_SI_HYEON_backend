@@ -39,20 +39,21 @@ public class BankDao {
         for(int i = 0; i < bankArray.size(); i++){
             // 배열에 있는 계좌와 입력한 계좌가 일치하면 해당 인덱스의 금액에 입력한 금액 +
             if(bankArray.get(i).get계좌번호().equals(bankDto.get계좌번호())){
-                int num = bankDto.get금액();
-                int num2 = bankArray.get(i).get금액();
-                bankArray.get(i).set금액(num+num2);
+//                int num = bankDto.get금액();
+//                int num2 = bankArray.get(i).get금액();
+//                bankArray.get(i).set금액(num+num2);
+                bankArray.set(i ,bankDto);
             }
 
-            // 은행별로 마일리지,쿠폰,포인트 배열에 저장
-            if(은행번호 == 1){
-                ShDto shDto = (ShDto)bankDto;
-                bankArray
-            }else if(은행번호 == 2){
-                bankArray.get(i).add(쿠폰);
-            }else if(은행번호 == 2){
-                bankArray.get(포인트);
-            }
+//            // 은행별로 마일리지,쿠폰,포인트 배열에 저장
+//            if(은행번호 == 1){
+//                ShDto shDto = (ShDto)bankDto;
+//                bankArray
+//            }else if(은행번호 == 2){
+//                bankArray.get(i).add(쿠폰);
+//            }else if(은행번호 == 2){
+//                bankArray.get(포인트);
+//            }
 
             return true;
         }
@@ -62,11 +63,34 @@ public class BankDao {
     public boolean 출금(BankDto bankDto){
         for(int i = 0; i < bankArray.size(); i++){
             // 배열에 있는 계좌와 입력한 계좌가 일치하면 해당 인덱스의 금액에 입력한 금액 -
-            if(bankArray.get(i).get계좌번호().equals(은행객체.get계좌번호())){
-                bankArray.get(i).get금액() -= 입력한출금액;
+            if(bankArray.get(i).get계좌번호().equals(bankDto.get계좌번호())){
+                int num = bankArray.get(i).get금액();
+                int num2 = bankDto.get금액();
+
+                bankArray.get(i).set금액(num-num2);
             }
             return true;
         }
         return false;
+    }
+
+    public String 조회(BankDto bankDto){
+        for (int i = 0 ; i < bankArray.size();i++){
+            if (bankArray.get(i).get계좌번호().equals(bankDto.get계좌번호())){
+                String str = "";
+                if (bankArray.get(i) instanceof ShDto ){
+                    ShDto shDto = (ShDto)bankDto;
+                    System.out.println(shDto);
+                    str += shDto.get계좌번호();
+                    str += shDto.get예금주();
+                    str += Integer.toString(shDto.get금액());
+                    str += Integer.toString(shDto.get마일리지());
+
+                }
+//                if (bankArray.get(i) instanceof KbDto ){return 2;}
+//                if (bankArray.get(i) instanceof NhDto ){return 3;}
+            }
+        }
+        return null;
     }
 }

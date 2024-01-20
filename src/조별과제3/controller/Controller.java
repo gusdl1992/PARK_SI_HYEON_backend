@@ -15,9 +15,6 @@ public class Controller {   // CLASS START
     public static Controller getInstance(){return controller;}  // 싱글톤 메소드
 // ==================================== 계좌생성 ==================================== //
     public boolean 계좌생성(BankDto bankDto){   // m start
-            System.out.println("bankDto = " + bankDto); // 매개변수 잘 받았는지 확인
-            System.out.println("Controller.계좌생성"); // 호출 잘 되는지 확인
-
         // 계좌생성 //
         boolean result = BankDao.getInstance().계좌생성(bankDto);   // View -> Dao 객체 전달 후 결과 받기
             System.out.println("result = " + result); // 결과를 확인하자.
@@ -25,8 +22,6 @@ public class Controller {   // CLASS START
     }   // m end
 // ==================================== 입금 ==================================== //
     public boolean 입금(BankDto bankDto){ // m start
-            System.out.println("BankDto = " + bankDto); // 매개변수 잘 받았는지 확인
-            System.out.println("Controller.입금"); // 호출 잘 되는지 확인
         boolean result = false;
         // 그냥 dto 받아서 dao 계좌찾기에 넘겨서 은행을 찾는다.
         int code = BankDao.getInstance().계좌찾기(bankDto);
@@ -76,14 +71,19 @@ public class Controller {   // CLASS START
     }   // m end
 // ==================================== 출금 ==================================== //
     public boolean 출금(BankDto bankDto){ // m start
-            System.out.println("BankDto = " + bankDto);
-            System.out.println("Controller.출금");
 
         // 그냥 dto 받아서 dao 계좌찾기에 넘겨서 은행을 찾는다.
         boolean result = BankDao.getInstance().출금(bankDto);   // View -> Dao 객체 전달 후 결과 받기
         System.out.println("result = " + result); // 결과를 확인하자.
         return result;
     }   // m end
+
+    // 조회
+    public String 조회(BankDto bankDto){
+        // 전달
+        String str = BankDao.getInstance().조회(bankDto);
+        return str;
+    }
 }   // CLASS END
 
 
