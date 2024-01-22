@@ -19,4 +19,11 @@ public class ShDto extends BankDto{
     public void set마일리지(int 마일리지) {
         this.마일리지 = 마일리지;
     }
+
+    @Override
+    public String toString() {
+        return "ShDto{" +
+                "마일리지=" + 마일리지 +
+                '}';
+    }
 }

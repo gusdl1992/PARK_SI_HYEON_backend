@@ -78,14 +78,13 @@ public class BankDao {
         for (int i = 0 ; i < bankArray.size();i++){
             if (bankArray.get(i).get계좌번호().equals(bankDto.get계좌번호())){
                 String str = "";
-                if (bankArray.get(i) instanceof ShDto ){
-                    ShDto shDto = (ShDto)bankDto;
-                    System.out.println(shDto);
-                    str += shDto.get계좌번호();
-                    str += shDto.get예금주();
-                    str += Integer.toString(shDto.get금액());
-                    str += Integer.toString(shDto.get마일리지());
+                if (bankArray.get(i) instanceof ShDto ) {
+                    BankDto bankDto1 = bankArray.get(i);
+                    ShDto shDto = (ShDto)bankDto1;
+                    System.out.println(shDto.get마일리지()); // 성공했다 시붐..ㅠ
 
+                }else {
+                    System.out.println("캐스팅 실패");
                 }
 //                if (bankArray.get(i) instanceof KbDto ){return 2;}
 //                if (bankArray.get(i) instanceof NhDto ){return 3;}
