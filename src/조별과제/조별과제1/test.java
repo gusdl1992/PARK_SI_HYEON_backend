@@ -1,4 +1,4 @@
-package 조별과제1;
+package 조별과제.조별과제1;
 
 public class test {
     public static void main(String[] args) {

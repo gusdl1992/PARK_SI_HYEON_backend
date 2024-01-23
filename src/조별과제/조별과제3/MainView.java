@@ -1,6 +1,6 @@
-package 조별과제3;
+package 조별과제.조별과제3;
 
-import 조별과제3.view.View;
+import 조별과제.조별과제3.view.View;
 
 import java.util.Scanner;
 

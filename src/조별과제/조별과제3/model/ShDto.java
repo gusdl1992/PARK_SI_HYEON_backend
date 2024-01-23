@@ -1,4 +1,4 @@
-package 조별과제3.model;
+package 조별과제.조별과제3.model;
 
 public class ShDto extends BankDto{
 

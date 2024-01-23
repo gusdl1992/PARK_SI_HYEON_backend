@@ -1,11 +1,11 @@
-package 조별과제3.controller;    // PACKAGE NAME
+package 조별과제.조별과제3.controller;    // PACKAGE NAME
 
 import java.util.Scanner;
-import 조별과제3.model.BankDto;
-import 조별과제3.model.KbDto;
-import 조별과제3.model.ShDto;
-import 조별과제3.model.NhDto;
-import 조별과제3.model.BankDao;
+import 조별과제.조별과제3.model.BankDto;
+import 조별과제.조별과제3.model.KbDto;
+import 조별과제.조별과제3.model.ShDto;
+import 조별과제.조별과제3.model.NhDto;
+import 조별과제.조별과제3.model.BankDao;
 
 public class Controller {   // CLASS START
 

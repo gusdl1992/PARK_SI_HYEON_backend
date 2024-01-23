@@ -1,4 +1,4 @@
-package 조별과제2;
+package 조별과제.조별과제2;
 
 import java.util.Scanner;
 
