@@ -2,11 +2,37 @@ package day17;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Step3 {
+    /*
+         0. Class.forName( "JDBC 드라이버 클래스 경로" )
+             해당 클래스를 찾아서 JDBC 드라이버 객체 ( DriverManager ) 자동 등록한다.
+         1. [클래스] DriverManager
+            - 연동 성공하면 Connection 구현체(객체)를 반환한다.
+            1. 연동함수
+                 DriverManager.getConnection( "jdbc:mysql://ip 번호:port 번호/DB명", "계정명" , "비밀번호");
+                 - ip 번호 = localhost : 현재 PC 뜻
+                 - port 번호 = mysql 3306 사용 권장.
+         2. [ 인터페이스 ] Connection
+            - Statement , PrepareStatement 구현 객체를 반환한다.
+            1. connection.PrepareStatement( SQL );      SQL 서명/기재 된 PrepareStatement 구현체 반환한다.
+         3. [ 인터페이스 ] PrepareStatement
+            - DDL , DML 문을 실행 할때 사용한다.
+            1. 실행
+                1. insert , update , delete => .executeUpdate();
+                2. select => executeQuery();
+         4. [ 인터페이스 ] ResultSet
+            - DB 에서 가져온 데이터를 읽을떄 사용한다.
+            1. 다음 레코드 이동 .next()        : 다음레코드 이동 후 존재하면 true / 없으면 false 반환
+            2. 현재 레코드에서 필드 값 호출      : .get 타입 ( 호출할 필드순서번호  or 필드명 )
+                                                .getString() : 문자타입 호출  , .getInt() : 정수타입 호출
+    
+     */
+
 
     public static void main(String[] args) {
         // 입력 객체
@@ -47,8 +73,34 @@ public class Step3 {
                     String sql = "insert into members values('"+ name +"')";
                     System.out.println(sql);
                     connection.prepareStatement(sql).executeUpdate();
-                } else if ( ch == 2 ) {
 
+                } else if ( ch == 2 ) {
+                    // 모든 필드(*)를 표시하는 모든 레코드(where 없이) 출력
+                    String sql = "select * from members";
+                    ResultSet resultSet = connection.prepareStatement(sql).executeQuery();
+                    System.out.println(resultSet); // select 결과물을 가지고있는 인터페이스
+                        
+                    // .next() : select 결과 테이블 에서 다음 레코드로 이동후 존재여부 true / false 반환 함수
+                    // System.out.println(resultSet.next()); // 유재석
+                    // System.out.println(resultSet.next()); // 없음.
+
+                    while (resultSet.next()){ // 검색결과내 첫번째 레코드부터 마지막 레코드까지 순회.
+                        // 하나씩 next() 로 레코드를 이동하면서 반복처리 만약에 다음 레코드가 존재하면 실행.
+                        // 다음레코드가 존재하지 않으면 false 이므로 while 종료.
+
+                        // System.out.println(resultSet.getString(1));
+                        System.out.println(resultSet.getString("name"));
+                            // .get타입( 호출 필드 순서번호 or 필드명 );
+
+                    } // while end
+                    /*
+                        ResultSet = 인터페이스  ---------------------> select 결과물(표)
+                            null                                    name        age
+                                                                    유재석        30
+                                                                    강호동        25
+                     */
+                    
+                    
                 } else if ( ch == 3 ) { // 수정
                     // 1. 입력받기
                     System.out.print("수정할 고객명 : "); String oldName = scanner.next();
