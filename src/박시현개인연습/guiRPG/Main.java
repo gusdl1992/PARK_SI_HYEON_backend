@@ -1,59 +1,49 @@
 package 박시현개인연습.guiRPG;
 
 import javax.swing.*;
-import java.awt.FlowLayout;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class Main {
 
     public static void main(String[] args) {
-//
-//        // 프레임 생성
-//        JFrame frm = new JFrame("RPG 게임 연습");
-//
-//        // 프레임 크기 설정
-//        frm.setSize(500 , 500);
-//
-//        // 프레임을 화면 가운데에 배치
-//        frm.setLocationRelativeTo(null);
-//
-//        // 프레임을 닫았을 떄 메모리에서 제거 되도록 설정
-//        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//        // ★ 레이아웃 설정
-//        FlowLayout fLay = new FlowLayout();
-//        frm.getContentPane().setLayout(fLay);
-//
-//        // ★ 버튼 생성
-//        JButton btn1 = new JButton("슬라삐");
-//        JButton btn2 = new JButton("슬라임");
-//
-//        // ★ 프레임에다가 버튼 추가
-//        frm.getContentPane().add(btn1);
-//        frm.getContentPane().add(btn2);
-//
-//        // 프레임이 보이도록 설정
-//        frm.setVisible(true);
+        // JFrame 객체 생성
+        JFrame jFrame = new JFrame();
 
+        // 제목 설정
+        jFrame.setTitle("제목");
 
-        // 프레임 생성
-        JFrame frm = new JFrame("슬라임 퇴치하기");
+        // 윈도우 크기 설정
+        jFrame.setSize(800 , 600);
+        // 시작시 시작 위치 설정
+        jFrame.setLocation(200 , 100);
+        // Jbutton 추가 AWT : Button ---- >    Swing : JButton  스윙은 J가 들어간다.
+        jFrame.getContentPane().add(new JButton("OK") , BorderLayout.SOUTH);
+        // AWT 버튼 추가
+        jFrame.getContentPane().add(new Button("123") , BorderLayout.NORTH);
+        // 윈도우 종료 버튼 클릭하면 프로세스 종료
+        jFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        }); // m e
 
-        // 프레임 크기 설정
-        frm.setSize(350, 300);
+        // 이벤트 큐에 Runnable 넣기 ( 이벤트 디스패칭 스레드 )
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
 
-        // 프레임을 화면 가운데에 배치
-        frm.setLocationRelativeTo(null);
+                // 윈도우를 보여줌
+                jFrame.setVisible(true);
+                System.out.println(Thread.currentThread().getName());
 
-        // 프레임을 닫았을 때 메모리에서 제거되도록 설정
-        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
 
-        // ★ 레이아웃 설정
-        frm.getContentPane().setLayout(null);
+        } // main end
 
-        // 프레임이 보이도록 설정
-        frm.setVisible(true);
+    } // c e
 
-        // ★ 컨텐츠 영역의 크기 표시
-        System.out.println(frm.getContentPane().getSize());
-    }
-}
