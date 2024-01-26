@@ -14,6 +14,7 @@ public class BoardDao extends Dao{
 
     // 카테고리 조회
     public ArrayList<CategoryDto> categorySearch(){
+        // try 안쪽에 ArrayList 선언시
         ArrayList<CategoryDto> categoryDtos = new ArrayList<>();
         try {
             // 1.sql 작성한다.

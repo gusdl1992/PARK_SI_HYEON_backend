@@ -45,9 +45,10 @@ public class BoardView {
     public void categorySearch(){
         // 카테고리 조회
         // 객체 넘기기
+        // ArrayList 선언후 컨트롤러에 서 반환되는 배열 받기
         ArrayList<CategoryDto> categoryDtoArrayList = BoardController.getInstance().categorySearch();
         // 결과 처리
-        int conut = 0;
+        int conut = 0; // for 문 카운터용.
         for (CategoryDto i : categoryDtoArrayList){
             System.out.print(categoryDtoArrayList.get(conut).getGno()+ ".  ");
             System.out.print(categoryDtoArrayList.get(conut).getBcategory());
@@ -55,7 +56,7 @@ public class BoardView {
             conut++;
         }
 
-        System.out.println();
+        System.out.println(); // 줄바꿈
 
     }
 
