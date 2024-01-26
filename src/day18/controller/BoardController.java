@@ -14,9 +14,9 @@ public class BoardController {
     public static BoardController getInstance(){return boardController;}
 
     // 카테고리 조회
-    public ArrayList<CategoryDto> categorySearch(ArrayList<CategoryDto> categoryDto){
+    public ArrayList<CategoryDto> categorySearch(){
         // Dao categoryDto 리스트 넘기기
-        ArrayList<CategoryDto> c1 =  BoardDao.getInstance().categorySearch(categoryDto);
+        ArrayList<CategoryDto> c1 =  BoardDao.getInstance().categorySearch();
 
         return c1;
     }
@@ -24,7 +24,7 @@ public class BoardController {
     public int writing(BoardDto boardDto){
         // 1. 반환변수
         int result = 0;
-
+        boardDto.setMno( MemberController.getInstance().loginMno);
         result = BoardDao.getInstance().writing(boardDto);
         return result;
     }

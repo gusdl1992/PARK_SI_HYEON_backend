@@ -44,10 +44,8 @@ public class BoardView {
     // 카테고리조회 메서드
     public void categorySearch(){
         // 카테고리 조회
-        ArrayList<CategoryDto> categoryDtoArrayList = new ArrayList<>();
-        CategoryDto categoryDto = new CategoryDto();
         // 객체 넘기기
-        categoryDtoArrayList = BoardController.getInstance().categorySearch(categoryDtoArrayList);
+        ArrayList<CategoryDto> categoryDtoArrayList = BoardController.getInstance().categorySearch();
         // 결과 처리
         int conut = 0;
         for (CategoryDto i : categoryDtoArrayList){
