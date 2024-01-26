@@ -58,5 +58,11 @@ public class BoardDao extends Dao{
         }
 
         return 1; // 실패
+    } // 글쓰기 끝
+
+    // 전체 글보기 메서드
+    public ArrayList<BoardDto> viewPost(){
+
+        return null;
     }
 }

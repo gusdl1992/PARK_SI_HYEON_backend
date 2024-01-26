@@ -31,6 +31,12 @@ public class BoardController {
         // 3. DAO 에 boardDto 객체 넘겨준후 반환
         result = BoardDao.getInstance().writing(boardDto);
         return result;
+    } // 글쓰기 끝
+
+    // 전체 글보기 메서드
+    public ArrayList<BoardDto> viewPost(){
+
+        return null;
     }
 
 }

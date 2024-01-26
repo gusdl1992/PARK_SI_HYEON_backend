@@ -86,4 +86,16 @@ public class BoardView {
         // 5. 함수종료
     }
 
+    // 전체 글보기 메서드
+    public void viewPost(){
+
+        // 게시글을 일단 가져온다.
+        // 가져온 게시글에서 카테고르 접근하여
+        // 카테고리 가져온다.
+        // 그리고 출력
+
+        ArrayList<BoardDto> boardDtoArrayList = BoardController.getInstance().viewPost();
+
+    }
+
 } // c e
