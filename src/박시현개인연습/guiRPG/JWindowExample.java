@@ -34,7 +34,8 @@ public class JWindowExample {
                 public void mouseClicked(MouseEvent e) {
                     // jWindow 제거
                     System.out.println(e);
-                    jWindow.dispose();
+                    jWindow.setSize(300 , 200 );
+                    // jWindow.dispose();
                 }
             });
 
