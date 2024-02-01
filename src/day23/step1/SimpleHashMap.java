@@ -2,7 +2,7 @@ package day23.step1;
 
 public class SimpleHashMap <K , V>{
     // 1. 필드
-    private Map[] array; // 여러 타입 저장
+    private Map<K , V>[] array; // 여러 타입 저장
     private int size;
 
     // 생성자
@@ -27,7 +27,7 @@ public class SimpleHashMap <K , V>{
             // 2. 배열 길이의 마지막 인덱스의 매개변수 저장
                 // 배열 메모리 재할당
                 // 1. 현재 사이즈 만큼 배열 선언.
-            Map[] newArray = new Map[size];
+            Map<K , V>[] newArray = new Map[size];
             // 2. 배열 복사
             for(int i = 0 ; i < this.array.length; i++){
                 newArray[i] = array[i];
@@ -36,10 +36,10 @@ public class SimpleHashMap <K , V>{
             array = newArray;
             // 4. 마지막인덱스의 매개변수 대입
             if (num >= 0){ // 중복값이 인덱스가 num 에 들어와 있으면 true
-               array[num] = new Map<K , V>(key , value);
+               array[num] = new Map<>(key, value);
                num = -1; // 중복값 저장 변수인 num 값 초기화
             }else {
-                array[size-1] = new Map<K , V>(key , value);
+                array[size-1] = new Map<>(key , value);
             }
             return true;
         }catch (Exception e){
@@ -67,7 +67,7 @@ public class SimpleHashMap <K , V>{
         // 배열의 사이즈 감소.
         this.size--;
         // 2. 감소된 사이즈 만큼 배열 재할당
-        Map[] newArray = new Map[size];
+        Map<K , V>[] newArray = new Map[size];
         // 3. 배열 복사.
             // i 기존 배열 인덱스
             // j 새로운 배열 인덱스
