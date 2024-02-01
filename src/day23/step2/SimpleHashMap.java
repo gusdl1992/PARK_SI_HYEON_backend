@@ -1,4 +1,4 @@
-package day23.step1;
+package day23.step2;
 
 public class SimpleHashMap <K , V>{
     // 1. 필드
@@ -53,7 +53,7 @@ public class SimpleHashMap <K , V>{
         try {
             for (int i = 0 ; i < array.length; i++){
                 if (key.equals(array[i].getKey())){
-                    return (V)array[i].getvalu();
+                    return array[i].getvalu();
                 }
             }
         }catch (Exception e){

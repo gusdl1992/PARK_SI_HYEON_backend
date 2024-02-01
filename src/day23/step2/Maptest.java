@@ -1,4 +1,4 @@
-package day23.step1;
+package day23.step2;
 
 public class Maptest {
     public static void main(String[] args) {

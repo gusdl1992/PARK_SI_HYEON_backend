@@ -2,6 +2,7 @@ package day23.step1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Step1 {
 
@@ -55,6 +56,13 @@ public class Step1 {
 
         SimpleList<Integer> intList = new SimpleList<>();
         intList.add(100);
+
+        ArrayList<ArrayList<String>> list = new ArrayList<>();
+        // [ [] , [] , [] , [] ]
+        // 클래스 <-----> 타입 생성 이중배열
+
+        ArrayList<HashMap<String , String > > list2 = new ArrayList<>();
+        // [ { JSON } , { JSON } , { JSON } , { JSON }  ]
 
 
         // JS
