@@ -20,8 +20,8 @@ public class SimpleHashMap <K , V>{
             for (int i = 0 ; i < array.length; i++){
                 if (key.equals(array[i].getKey())){
                     System.out.println("중복값 찾았다!");
-                    size--;
-                    num = i;
+                    size--; // 중복되었으니 size++ 한값을 다시 감소
+                    num = i; // 중복된 인덱스의 값을 num 에 대입
                 }
             }
             // 2. 배열 길이의 마지막 인덱스의 매개변수 저장
@@ -35,9 +35,9 @@ public class SimpleHashMap <K , V>{
             // 3. 기존배열필드에 배열 대입
             array = newArray;
             // 4. 마지막인덱스의 매개변수 대입
-            if (num >= 0){
+            if (num >= 0){ // 중복값이 인덱스가 num 에 들어와 있으면 true
                array[num] = new Map<K , V>(key , value);
-               num = -1;
+               num = -1; // 중복값 저장 변수인 num 값 초기화
             }else {
                 array[size-1] = new Map<K , V>(key , value);
             }
